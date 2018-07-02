@@ -87,3 +87,24 @@ exports.articleByID = function(req, res, next, id) {
 		next();
 	});
 };
+
+module.exports.single = function(req, res) {
+   res.render('./../public/views/article/view.ejs', {
+          user: req.user || null,
+          article: req.article
+    });
+};
+
+module.exports.new = function(req, res){
+  res.render('./../public/views/article/new.ejs', {
+          user: req.user || null,
+          request: req
+        });
+};
+
+module.exports.edit = function(req, res) {
+    res.render('./../public/views/article/edit.ejs', {
+        user: req.user || null,
+        article: req.article
+    });
+};
